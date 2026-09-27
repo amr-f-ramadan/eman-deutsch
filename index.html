@@ -3,271 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>كروت كلمات: Wohnen</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#E6EBEE; --paper:#FBFCFC; --ink:#1E2833; --muted:#5E6B78; --line:#CBD4DA;
-  --der:#2D5F9E; --die:#B03F37; --das:#3B7A4C; --other:#8A6D1E;
-  --ok:#3B7A4C; --again:#B03F37;
-  --ar:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
-  --de:"Literata", Georgia, "Times New Roman", serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#161C22; --paper:#212A33; --ink:#E8EDF1; --muted:#9AA7B3; --line:#34404B;
-    --der:#7FAEE8; --die:#EE8A80; --das:#86C996; --other:#E0C06A; --ok:#86C996; --again:#EE8A80;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#161C22; --paper:#212A33; --ink:#E8EDF1; --muted:#9AA7B3; --line:#34404B;
-  --der:#7FAEE8; --die:#EE8A80; --das:#86C996; --other:#E0C06A; --ok:#86C996; --again:#EE8A80;
-}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px); height:100%}
-body{margin:0; min-height:100%; background:var(--bg); color:var(--ink); font-family:var(--ar); font-size:16px; line-height:1.6}
-.wrap{max-width:560px; margin:0 auto; padding:16px 16px 24px; display:flex; flex-direction:column; gap:14px; min-height:100%}
-header h1{font-size:1.25rem; font-weight:600; margin:0}
-header p{margin:2px 0 0; color:var(--muted); font-size:.9rem}
-.bar{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
-.chip{font:inherit; font-size:.88rem; border:1px solid var(--line); background:var(--paper); color:var(--ink); padding:6px 12px; border-radius:999px; cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-.progress{height:6px; background:var(--line); border-radius:3px; overflow:hidden}
-.progress span{display:block; height:100%; background:var(--ok); width:0; transition:width .3s}
-.count{font-size:.85rem; color:var(--muted); display:flex; justify-content:space-between}
-.stage{perspective:1400px; flex:1; min-height:360px; display:flex}
-.card{position:relative; width:100%; min-height:360px; cursor:pointer; transform-style:preserve-3d; transition:transform .45s ease; border:none; background:none; padding:0; font:inherit; color:inherit; text-align:inherit}
-.card.flipped{transform:rotateY(180deg)}
-.face{position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; background:var(--paper); border-radius:14px; border:1px solid var(--line); padding:22px 20px; display:flex; flex-direction:column; overflow-y:auto}
-.face::before{content:""; position:absolute; top:0; right:0; left:0; height:6px; border-radius:14px 14px 0 0; background:var(--g,var(--other))}
-.back{transform:rotateY(180deg)}
-.front{justify-content:center; align-items:center; text-align:center; gap:10px}
-.de{font-family:var(--de); direction:ltr; unicode-bidi:isolate}
-.word{font-size:clamp(1.8rem,7vw,2.4rem); font-weight:600; line-height:1.25}
-.art{color:var(--g,var(--other))}
-.gram{font-family:var(--de); direction:ltr; color:var(--muted); font-size:.95rem}
-.hint{color:var(--muted); font-size:.82rem; margin-top:14px}
-.ar-big{font-size:clamp(1.6rem,6vw,2rem); font-weight:600; line-height:1.35}
-.back h3{margin:0 0 4px; font-size:.8rem; font-weight:500; color:var(--muted)}
-.back .mean{font-size:1.35rem; font-weight:600; margin-bottom:6px}
-.back .deword{font-size:1.05rem; color:var(--muted); margin-bottom:14px; text-align:left}
-.ex{border-top:1px solid var(--line); padding-top:12px; margin-top:4px}
-.ex .de{font-size:1.1rem; text-align:left; display:block; margin-bottom:4px}
-.ex .tr{color:var(--muted)}
-.note{margin-top:14px; font-size:.9rem; background:color-mix(in srgb,var(--other) 12%,transparent); border-inline-start:3px solid var(--other); padding:8px 10px; border-radius:6px}
-.legend{display:flex; gap:14px; font-size:.8rem; color:var(--muted); justify-content:center; direction:ltr; font-family:var(--de)}
-.legend b{font-weight:600}
-.speak{display:flex; gap:8px; align-items:center}
-.speak .btn{flex:1; padding:10px}
-.tts-msg{font-size:.85rem; color:var(--again); text-align:center}
-.rate{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-.btn{font:inherit; font-weight:500; border-radius:10px; padding:12px; cursor:pointer; border:1px solid var(--line); background:var(--paper); color:var(--ink)}
-.btn.again{border-color:var(--again); color:var(--again)}
-.btn.ok{background:var(--ok); border-color:var(--ok); color:var(--paper)}
-.nav{display:flex; justify-content:space-between; gap:10px}
-.nav .btn{flex:1}
-button:focus-visible{outline:3px solid var(--der); outline-offset:2px}
-.empty{margin:auto; text-align:center; color:var(--muted); padding:40px 10px}
-@media (prefers-reduced-motion:reduce){.card{transition:none}.progress span{transition:none}}
-</style>
+<title>كروت ألماني</title>
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0BAMAAADP4xsBAAAAGFBMVEX954Rvk1UgbmIfbmIfbmEebmLGCggDDw0gE7A0AAADvElEQVR42u2bTU8TQRjH/9P2wKXsLOBFw4sUb5SuqfFGot8APyeJ4U4wJsaTLKWuN4i0FzUC3Wk5WFPb8TCzu9PS7cu0IInPXLqZdH/zzPM+k5aVcVcjA0ITmtCEJjShCU1oQhOa0IQmNKH/CTpn85IUAOMIAbhzRt+UgV6NlQGccFu0FAAA1geQ2/tAZg/7AHtTt0Vn1e2AvOhfcB667vrq86mYtxlblxrpibk7X0QM5o2WxcEl5ie1vAd0t2ROs9nNeHM61N1YcxNgdbkJoGnrIbEeZJ+grSQav6a/zEbdmDnv4sdHi3xYDmHcTmrpGPIvmvK4CGXI3Bl0bWi4u55oNVSb7VVGCj0SnVgRkLwZa6PAIX0gU8Z13VIhpjdLI2P5oUqI5+5KqZrOzj5OJ//+BgDgbQD482tBzeY/fm+31WO7cfWyaRMyOsy1PuMdhGZkXo5ILpmxVmTeqFA/L9mgmcr/WTYk1JPlPwgLdKumVM1GVparkoUZtRWf/GwAADrajPJH/9c67YVppY6SdRHKjs2+nbtxKDYt/FpGCZSLgVBfWvYAHF/cTgFTovNrNWVH3RewLa/rA3hROuibnxytwzxbdfrsyJpbRZ+5AHxvdOeQGxfmPCoqGiFXVqsuQgAIZkQ7jkYg6HEA6FZ5CJXlL4VVUpXbZwCAnfqAHZkjyvCliBf/LLlVO8kAOB0BAI01bQTvuK9PY3JKv76pqPcY0HsOAOitq/RUPLqYsaKr3S5XAKwb9pLlwwmbknFo7iUzQY8Drc6k7U4uNczPklaVGaWXHczcqWrbmH2GWEwcZ5bGbIjZuyUgU4kbBteyWTCrublalP+eeQAO7UJGpGxEzT8q+kDWTiHFYQIlxWq36rrumNY4BS3lmGae25txKPq6ZDbYctsK3TpNWU8YWpdWHsJEClpXwqALFN7bOZ92hFeRS7/Voa53WdsDPgkbdBTmjh/1FHE8qtzdOeKyZhfoWo07UUVtxdVAPaDRsPQQFg6etLgO9bw34+FOO0iCzsfV23iBcRvnE7pRGDgqyoAFfNLiNxQtV2+FXJSyRf51PLdnoxBnEM2CaDfsy0Z03ju18hCViotGy6VuRNiGyBeEAICl3WD08W74kbSlrGZcLMmCquo1ICwfC2DFO3HUXENMg9ZXTqZQYeIUYRlA91S3Z6mXZszmpyfheM+zvYxz53FBNMsgNKEJTWhCE5rQhCY0oQlNaELfFzoX3h168+7Q9B8OQhOa0P9dUiVdE5rQhH6gaBo0aNB4oOMv/i49S/nrIo4AAAAASUVORK5CYII=">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Deutsch">
 <meta name="theme-color" content="#E6EBEE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E6EBEE;--paper:#FBFCFC;--ink:#1E2833;--muted:#5E6B78;--line:#CBD4DA;--accent:#1F6E62;
+  --der:#2D5F9E;--die:#B03F37;--das:#3B7A4C;--other:#8A6D1E;--ok:#3B7A4C;--again:#B03F37;
+  --ui:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;--de:"Literata",Georgia,"Times New Roman",serif;--arf:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161C22;--paper:#212A33;--ink:#E8EDF1;--muted:#9AA7B3;--line:#34404B;--accent:#5FC4B2;
+  --der:#7FAEE8;--die:#EE8A80;--das:#86C996;--other:#E0C06A;--ok:#86C996;--again:#EE8A80}}
+:root[data-theme="dark"]{--bg:#161C22;--paper:#212A33;--ink:#E8EDF1;--muted:#9AA7B3;--line:#34404B;--accent:#5FC4B2;
+  --der:#7FAEE8;--die:#EE8A80;--das:#86C996;--other:#E0C06A;--ok:#86C996;--again:#EE8A80}
+</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>كلمات: Wohnen</h1>
-    <p>دوسي على الكارت عشان تقلبيه، وبعدين قولي حافظاها ولا لسه.</p>
-  </header>
-
-  <div class="bar" role="group" aria-label="الكروت">
-    <button class="chip" id="fAll" aria-pressed="true">كل الكلمات</button>
-    <button class="chip" id="fLearn" aria-pressed="false">اللي لسه</button>
-    <button class="chip" id="dir" aria-pressed="false">عربي ← ألماني</button>
-    <button class="chip" id="shuf">لخبطي الترتيب</button>
-  </div>
-
-  <div>
-    <div class="progress"><span id="prog"></span></div>
-    <div class="count"><span id="pos"></span><span id="known"></span></div>
-  </div>
-
-  <div class="stage" id="stage"></div>
-
-  <div class="speak" role="group" aria-label="النطق">
-    <button class="btn" id="sayWord">🔊 اسمعي الكلمة</button>
-    <button class="btn" id="saySent">🔊 اسمعي المثال</button>
-    <button class="chip" id="slow" aria-pressed="false">أبطأ</button>
-  </div>
-  <div class="tts-msg" id="ttsMsg" hidden>المتصفح ده مش بيدعم النطق. جربي Chrome أو Safari.</div>
-
-  <div class="legend"><span><b style="color:var(--der)">der</b></span><span><b style="color:var(--die)">die</b></span><span><b style="color:var(--das)">das</b></span><span><b style="color:var(--other)">Verb / Adj. / Ausdruck</b></span></div>
-
-  <div class="rate">
-    <button class="btn again" id="again">لسه مش حافظاها</button>
-    <button class="btn ok" id="ok">حافظاها</button>
-  </div>
-  <div class="nav">
-    <button class="btn" id="prev">السابقة</button>
-    <button class="btn" id="reset">ابدئي من الأول</button>
-    <button class="btn" id="next">التالية</button>
-  </div>
+  <header><h1>كلمات ألماني</h1></header>
+  <main id="main"></main>
 </div>
-
+<div id="toast" hidden role="status"></div>
+<nav>
+  <button data-mode="learn">مذاكرة<span id="badge" hidden></span></button>
+  <button data-mode="quiz">der/die/das</button>
+  <button data-mode="list">كل الكلمات</button>
+  <button data-mode="settings">الإعدادات</button>
+</nav>
 <script>
-// g: der | die | das | pl | x (no article)
-const CARDS = [
- {id:"grundlage", g:"die", w:"Grundlage", gr:"die Grundlage, -n", ar:"الأساس", ex:"Eine gute Lage ist die Grundlage für eine schöne Wohnung.", tr:"الموقع الكويس هو أساس الشقة الحلوة.", note:"في الورقة مكتوب «Standart»، الصح «der Standard». ومرادف أدق لـ Grundlage هو «die Basis»."},
- {id:"hauptsache", g:"die", w:"Hauptsache", gr:"die Hauptsache", ar:"أهم حاجة / المهم", ex:"Hauptsache, die Wohnung ist ruhig.", tr:"المهم إن الشقة تكون هادية."},
- {id:"stabil", g:"x", w:"stabil", gr:"Adjektiv", ar:"متين / ثابت", ex:"Das Regal ist sehr stabil.", tr:"الرف متين جداً."},
- {id:"wohnsitz", g:"der", w:"Wohnsitz", gr:"der feste Wohnort / der feste Wohnsitz", ar:"محل إقامة ثابت", ex:"Er hat noch keinen festen Wohnsitz.", tr:"هو لسه معندوش محل إقامة ثابت."},
- {id:"festewohnung", g:"die", w:"feste Wohnung", gr:"eine feste Wohnung", ar:"شقة ثابتة (مش مؤقتة)", ex:"Nach dem Studium sucht sie eine feste Wohnung.", tr:"بعد الدراسة هي بتدور على شقة ثابتة."},
- {id:"eng", g:"x", w:"eng", gr:"Adjektiv (≠ geräumig)", ar:"ضيق", ex:"Die Küche ist sehr eng, wir haben wenig Platz.", tr:"المطبخ ضيق جداً، مفيش مكان كفاية."},
- {id:"atmen", g:"x", w:"Man kann nicht atmen.", gr:"atmen, atmete, hat geatmet", ar:"الواحد مش قادر ياخد نفسه", ex:"Das Zimmer ist so klein, man kann kaum atmen.", tr:"الأوضة صغيرة أوي، الواحد بالعافية بياخد نفسه."},
- {id:"atemprobleme", g:"pl", w:"Atemprobleme", gr:"die Atemprobleme (Plural)", ar:"مشاكل في التنفس", ex:"Wegen der feuchten Wände hat er Atemprobleme.", tr:"بسبب الحيطان اللي فيها رطوبة عنده مشاكل في التنفس."},
- {id:"mittel", g:"das", w:"Mittel", gr:"das Mittel, -", ar:"وسيلة / طريقة", ex:"Lüften ist ein gutes Mittel gegen Schimmel.", tr:"التهوية وسيلة كويسة ضد العفن.", note:"في الورقة مكتوب «die Mittel»، ده الجمع. المفرد «das Mittel»."},
- {id:"mitte", g:"die", w:"Mitte", gr:"die Mitte", ar:"النص / المنتصف", ex:"Der Tisch steht in der Mitte des Zimmers.", tr:"الترابيزة في نص الأوضة."},
- {id:"stadtmitte", g:"die", w:"Stadtmitte", gr:"die Stadtmitte = das Stadtzentrum", ar:"وسط البلد", ex:"Wir wohnen direkt in der Stadtmitte.", tr:"إحنا ساكنين في وسط البلد على طول."},
- {id:"reisende", g:"pl", w:"Reisenden", gr:"die Reisenden (Plural) / ein Reisender", ar:"المسافرين", ex:"Die Reisenden warten am Bahnhof auf den Zug.", tr:"المسافرين مستنيين القطر في المحطة."},
- {id:"campus", g:"der", w:"Campus", gr:"der Campus", ar:"الحرم الجامعي", ex:"Das Studentenwohnheim liegt direkt auf dem Campus.", tr:"السكن الجامعي موجود جوه الحرم الجامعي.", note:"الـ Campus معناه أرض الجامعة كلها (مباني ومكتبة وسكن)، مش WG. الورقة مختصرة المعنى أوي."},
- {id:"kuestenstadt", g:"die", w:"Küstenstadt", gr:"die Küstenstadt, -städte", ar:"مدينة ساحلية", ex:"Alexandria ist eine Küstenstadt.", tr:"إسكندرية مدينة ساحلية.", note:"«Küste» غالباً معناها ساحل البحر. مدينة على بحيرة بيقولوا عليها أكتر «eine Stadt am See»."},
- {id:"keks", g:"x", w:"jemandem auf den Keks gehen", gr:"umgangssprachlich (geht, ging, ist gegangen)", ar:"يعصّب حد / يضايقه", ex:"Der Lärm von den Nachbarn geht mir auf den Keks.", tr:"دوشة الجيران بتعصبني.", note:"الشكل الكامل للتعبير: «jemandem auf den Keks gehen»، ومش بيتقال «auf Keks»."},
- {id:"wurst", g:"x", w:"Das ist mir Wurst.", gr:"umgangssprachlich = Das ist mir egal.", ar:"مش فارقة معايا", ex:"Ob wir Pizza oder Pasta essen, ist mir Wurst.", tr:"ناكل بيتزا ولا مكرونة، مش فارقة معايا."},
- {id:"fernverkehr", g:"der", w:"Fernverkehr", gr:"der Fernverkehr", ar:"المواصلات بين المدن (مسافات طويلة)", ex:"Der ICE fährt im Fernverkehr.", tr:"قطر الـ ICE بيمشي بين المدن."},
- {id:"nahverkehr", g:"der", w:"Nahverkehr", gr:"der (öffentliche) Nahverkehr", ar:"المواصلات جوه المدينة", ex:"Mit dem Nahverkehr kommt man schnell in die Stadtmitte.", tr:"بالمواصلات الداخلية توصلي وسط البلد بسرعة."},
- {id:"flaeche", g:"die", w:"Fläche", gr:"die Fläche, -n", ar:"مساحة", ex:"Die Wohnung hat eine Fläche von 70 Quadratmetern.", tr:"مساحة الشقة 70 متر مربع.", note:"Fläche معناها مساحة أو سطح بشكل عام، مش لازم تكون ملكك."},
- {id:"grundstueck", g:"das", w:"Grundstück", gr:"das Grundstück, -e", ar:"قطعة أرض", ex:"Sie haben ein Grundstück gekauft und bauen ein Haus.", tr:"اشتروا حتة أرض وبيبنوا بيت."},
- {id:"klassisch", g:"x", w:"klassisch", gr:"Adjektiv", ar:"كلاسيكي", ex:"Das Wohnzimmer ist klassisch eingerichtet.", tr:"أوضة المعيشة متفرشة ستايل كلاسيكي."},
- {id:"hinweis", g:"der", w:"Hinweis", gr:"der Hinweis, -e ≈ der Tipp, das Zeichen, der Denkanstoß", ar:"ملاحظة / تلميح / إشارة", ex:"Danke für den Hinweis!", tr:"شكراً على الملاحظة!"},
- {id:"begrenzt", g:"x", w:"begrenzt", gr:"Adjektiv", ar:"محدود", ex:"Die Parkplätze vor dem Haus sind begrenzt.", tr:"أماكن الركنة قدام البيت محدودة."},
- {id:"wg", g:"die", w:"WG", gr:"die WG = die Wohngemeinschaft, -en", ar:"سكن مشترك (ناس بيقسموا شقة وإيجار)", ex:"In unserer WG wohnen drei Studenten.", tr:"في السكن المشترك بتاعنا ساكنين تلات طلبة."},
- {id:"studentenwohnung", g:"die", w:"Studentenwohnung", gr:"die Studentenwohnung, -en", ar:"شقة طلبة", ex:"Die Studentenwohnung ist klein, aber günstig.", tr:"شقة الطلبة صغيرة بس رخيصة."},
- {id:"privatsphaere", g:"die", w:"Privatsphäre", gr:"die Privatsphäre", ar:"الخصوصية", ex:"In einer WG hat man weniger Privatsphäre.", tr:"في السكن المشترك الخصوصية بتبقى أقل."},
- {id:"fliese", g:"die", w:"Fliese", gr:"die Fliese, -n (auch: die Fliesenplatte)", ar:"بلاطة / سيراميك", ex:"Im Bad sind die Fliesen weiß.", tr:"السيراميك في الحمام أبيض."},
- {id:"bestehen", g:"x", w:"bestehen aus", gr:"bestehen aus + Dativ (besteht, bestand, hat bestanden)", ar:"يتكوّن من", ex:"Die Wohnung besteht aus drei Zimmern, einer Küche und einem Bad.", tr:"الشقة بتتكون من تلات أوض ومطبخ وحمام."},
- {id:"qm", g:"der", w:"Quadratmeter", gr:"der Quadratmeter, - (m²)", ar:"متر مربع", ex:"Die Miete kostet 12 Euro pro Quadratmeter.", tr:"الإيجار 12 يورو للمتر المربع."},
- {id:"laenge", g:"die", w:"Länge", gr:"die Länge, -n", ar:"الطول", ex:"Das Zimmer hat eine Länge von fünf Metern.", tr:"طول الأوضة خمسة متر.", note:"في الورقة مكتوب «lenght»، الإنجليزي الصح «length»."},
- {id:"breite", g:"die", w:"Breite", gr:"die Breite, -n", ar:"العرض", ex:"Das Bett hat eine Breite von 1,60 Metern.", tr:"عرض السرير متر وستين."},
- {id:"fast", g:"x", w:"fast", gr:"≈ beinahe", ar:"تقريباً (قرب يخلص)", ex:"Ich bin mit dem Aufräumen fast fertig.", tr:"أنا قربت أخلص الترويق.", note:"فيه فرق صغير: «fast» = قرب/كاد. «ungefähr» و«ca.» = حوالي (رقم مش مظبوط). «gegen» = حوالي مع الوقت: «gegen 18 Uhr»."},
- {id:"insgesamt", g:"x", w:"insgesamt", gr:"Adverb", ar:"في المجموع / إجمالاً", ex:"Insgesamt zahlen wir 900 Euro Miete.", tr:"إحنا بندفع 900 يورو إيجار في المجموع."},
- {id:"rechnung", g:"die", w:"Rechnung", gr:"die Rechnung, -en", ar:"فاتورة / الحساب", ex:"Die Stromrechnung kommt jeden Monat.", tr:"فاتورة الكهربا بتيجي كل شهر."},
- {id:"gesamtpreis", g:"der", w:"Gesamtpreis", gr:"der Gesamtpreis, -e", ar:"السعر الإجمالي", ex:"Der Gesamtpreis für die Möbel ist 1.200 Euro.", tr:"السعر الإجمالي للعفش 1200 يورو."},
- {id:"menge", g:"die", w:"Menge", gr:"die Menge, -n", ar:"كمية", ex:"Für die Wände brauchen wir eine große Menge Farbe.", tr:"محتاجين كمية كبيرة من الدهان للحيطان."},
- {id:"huhn", g:"das", w:"Huhn", gr:"das Huhn, Hühner", ar:"فرخة (الحيوان)", ex:"Auf dem Bauernhof gibt es viele Hühner.", tr:"في المزرعة فيه فراخ كتير."},
- {id:"haehnchen", g:"das", w:"Hähnchen", gr:"das Hähnchen, -", ar:"فراخ (كأكل)", ex:"Heute gibt es Hähnchen mit Reis.", tr:"النهارده فيه فراخ برز.", note:"Hähnchen غالباً الفرخة كأكل (مشوية، مقلية، في السوبرماركت)، مش لازم تكون مطبوخة زي ما الورقة قالت."},
- {id:"kamin", g:"der", w:"Kamin", gr:"der Kamin, -e", ar:"مدفأة حطب (في الحيطة)", ex:"Im Winter sitzen wir gern am Kamin.", tr:"في الشتا بنحب نقعد جنب المدفأة."},
- {id:"dienstleistung", g:"die", w:"Dienstleistung", gr:"die Dienstleistung, -en", ar:"خدمة", ex:"Die Reinigung ist eine extra Dienstleistung.", tr:"التنضيف خدمة إضافية."},
- {id:"langfristig", g:"x", w:"langfristig", gr:"Adjektiv / Adverb", ar:"على المدى الطويل", ex:"Wir suchen langfristig eine größere Wohnung.", tr:"على المدى الطويل بندور على شقة أكبر."},
- {id:"kurzfristig", g:"x", w:"kurzfristig", gr:"Adjektiv / Adverb", ar:"لفترة قصيرة / على آخر لحظة", ex:"Ich muss den Termin leider kurzfristig absagen.", tr:"للأسف لازم ألغي الميعاد على آخر لحظة."},
- {id:"soviel", g:"x", w:"so viel", gr:"≠ zu viel", ar:"كتير كده / بالشكل ده", ex:"Warum kostet die Wohnung so viel?", tr:"ليه الشقة غالية كده؟", note:"«so viel» = كتير كده (so much). لو عايزة «كتير جداً» يبقى «sehr viel»."},
- {id:"zuviel", g:"x", w:"zu viel", gr:"≠ zu wenig", ar:"كتير زيادة عن اللزوم", ex:"Wir zahlen zu viel Miete.", tr:"إحنا بندفع إيجار كتير زيادة."},
- {id:"blick", g:"der", w:"Blick", gr:"der Blick, -e", ar:"نظرة / منظر", ex:"Aus der Küche hat man einen Blick auf den Park.", tr:"من المطبخ تقدري تشوفي الجنينة."},
- {id:"ausblick", g:"der", w:"Ausblick", gr:"der Ausblick, -e", ar:"منظر (من مكان عالي أو من الشباك)", ex:"Vom Balkon haben wir einen tollen Ausblick auf die Berge.", tr:"من البلكونة عندنا منظر تحفة على الجبال."},
- {id:"einblick", g:"der", w:"Einblick", gr:"der Einblick, -e", ar:"فكرة من جوه / نظرة عن قرب", ex:"Die Besichtigung gibt einen guten Einblick in die Wohnung.", tr:"المعاينة بتديكي فكرة كويسة عن الشقة من جوه."},
- {id:"einraeumen", g:"x", w:"einräumen", gr:"räumt ein, räumte ein, hat eingeräumt", ar:"يحط الحاجة في مكانها (دولاب/أوضة)", ex:"Ich räume das Geschirr in den Schrank ein.", tr:"بحط المواعين في الدولاب."},
- {id:"ausraeumen", g:"x", w:"ausräumen", gr:"räumt aus, räumte aus, hat ausgeräumt", ar:"يفضّي", ex:"Vor dem Umzug müssen wir die Schränke ausräumen.", tr:"قبل النقل لازم نفضي الدواليب."},
- {id:"umraeumen", g:"x", w:"umräumen", gr:"räumt um, räumte um, hat umgeräumt", ar:"يغيّر ترتيب الأوضة", ex:"Am Wochenende haben wir das Wohnzimmer umgeräumt.", tr:"في الويك إند غيرنا ترتيب أوضة المعيشة."},
- {id:"aufraeumen", g:"x", w:"aufräumen", gr:"räumt auf, räumte auf, hat aufgeräumt", ar:"يروّق / يرتّب", ex:"Räum bitte dein Zimmer auf!", tr:"روّق أوضتك لو سمحت!"},
- {id:"geraeumig", g:"x", w:"geräumig", gr:"Adjektiv (≠ eng)", ar:"واسع", ex:"Die Wohnung ist hell und geräumig.", tr:"الشقة منورة وواسعة."},
- {id:"streichen", g:"x", w:"streichen", gr:"streicht, strich, hat gestrichen", ar:"يدهن (حيطة / بيت)", ex:"Wir haben die Wände weiß gestrichen.", tr:"دهنّا الحيطان أبيض."},
- {id:"aber", g:"x", w:"aber", gr:"Konnektor (Position 0)", ar:"لكن / بس", ex:"Die Wohnung ist klein, aber sehr gemütlich.", tr:"الشقة صغيرة بس مريحة جداً.", note:"«aber» مش بياخد مكان في الجملة (Position 0)، فالفعل بيفضل في المكان التاني بعده: «aber ich komme später»."}
-];
-
-const ART = {der:"der ", die:"die ", das:"das ", pl:"die ", x:""};
-const COL = {der:"var(--der)", die:"var(--die)", das:"var(--das)", pl:"var(--die)", x:"var(--other)"};
-const KEY = "wohnen-cards-v1";
-
-let known = new Set(), order = CARDS.map((_,i)=>i), onlyLearn=false, arFirst=false, idx=0;
-try{ const s = JSON.parse(localStorage.getItem(KEY)||"null"); if(s && Array.isArray(s.known)) known = new Set(s.known); }catch(e){}
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify({known:[...known]})); }catch(e){} }
-
-const $ = id => document.getElementById(id);
-function deck(){ return order.filter(i => !onlyLearn || !known.has(CARDS[i].id)); }
-function esc(t){ return String(t).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
-
-function germanHTML(c){
-  const a = ART[c.g];
-  return `<span class="de word">${a?`<span class="art">${a}</span>`:""}${esc(c.w)}</span>`;
-}
-function render(){
-  const d = deck();
-  $("known").textContent = `حافظة ${known.size} من ${CARDS.length}`;
-  $("prog").style.width = (known.size/CARDS.length*100)+"%";
-  const stage = $("stage");
-  if(!d.length){
-    stage.innerHTML = `<div class="empty">كده خلصتي كل الكلمات اللي كانت لسه.<br>دوسي «كل الكلمات» عشان تراجعي تاني.</div>`;
-    $("pos").textContent = ""; return;
+window.APP = {
+  repo: "amr-f-ramadan/eman-deutsch",
+  key: "kk-eman-v2",
+  newPerDay: 10,
+  migrate: function (p) {
+    var s = JSON.parse(localStorage.getItem("wohnen-cards-v1") || "null");
+    if (!s || !Array.isArray(s.known)) return;
+    var now = Date.now(), d = new Date(); d.setHours(0,0,0,0);
+    s.known.forEach(function (id, i) { p.cards[id] = { b: 2, due: d.getTime() + (1 + i % 3) * 864e5, t: now, n: 1, w: 0 }; });
+  },
+  t: {
+    flip: "اقلبي الكارت", show: "اعرفي المعنى", again: "لسه", good: "عرفتها",
+    sayWord: "اسمعي الكلمة", sayEx: "اسمعي المثال", whatDe: "الكلمة دي بالألماني إيه؟",
+    left: "فاضل {n} كروت", newCard: "جديدة", todayStat: "النهارده: {d} مراجعة و{f} كلمات جديدة",
+    doneTitle: "خلصتي مذاكرة النهارده", doneText: "بكرة هيبقى عندك {n} كروت للمراجعة.", moreNew: "عايزة كلمات جديدة كمان",
+    artQ: "الأداة الصح إيه؟", next: "الكلمة اللي بعدها", artStat: "في الكلمة دي: {ok} صح و{w} غلط", noNouns: "مفيش أسماء في القايمة.",
+    listStat: "{a} من {t} كلمة ثابتين معاكي", level: "المستوى",
+    syncH: "مزامنة التقدم", syncHelp: "لو حطيتي GitHub token، التقدم بتاعك هيتحفظ في الـ repo ويبقى هو هو على كل الأجهزة.",
+    tokenLabel: "GitHub token (Fine-grained، للـ repo ده بس، Contents: Read and write)", saveToken: "احفظي الـ token", tokenOk: "اتوصلت، والتقدم اتزامن",
+    syncNow: "زامني دلوقتي", delToken: "امسحي الـ token",
+    st_local: "محفوظ على الجهاز ده بس", st_syncing: "بيزامن…", st_ok: "متزامن", st_error: "المزامنة فشلت، جربي تاني بعدين", st_badtoken: "الـ token غلط أو خلص",
+    backupH: "نسخة احتياطية", export: "احفظي نسخة كملف", import: "رجّعي نسخة من ملف", imported: "النسخة اترجعت", importFail: "الملف ده مش مناسب",
+    optsH: "المذاكرة", newPerDay: "كلمات جديدة في اليوم", arFirst: "اعرضي العربي الأول", slow: "نطق أبطأ",
+    resetH: "البداية من الأول", reset: "امسحي التقدم كله", resetQ: "متأكدة إنك عايزة تمسحي التقدم كله؟"
   }
-  if(idx >= d.length) idx = 0;
-  if(idx < 0) idx = d.length-1;
-  const c = CARDS[d[idx]];
-  $("pos").textContent = `كارت ${idx+1} من ${d.length}`;
-  const front = arFirst
-    ? `<div class="ar-big">${esc(c.ar)}</div><div class="hint">الكلمة بالألماني إيه؟ دوسي عشان تشوفي</div>`
-    : `${germanHTML(c)}<div class="gram">${esc(c.gr)}</div><div class="hint">دوسي عشان تشوفي المعنى</div>`;
-  const back = `
-    <h3>المعنى</h3>
-    <div class="mean">${esc(c.ar)}</div>
-    <div class="deword">${germanHTML(c).replace('word','')} <span class="gram">(${esc(c.gr)})</span></div>
-    <div class="ex"><h3>مثال</h3><span class="de">${esc(c.ex)}</span><div class="tr">${esc(c.tr)}</div></div>
-    ${c.note?`<div class="note">ملاحظة: ${esc(c.note)}</div>`:""}`;
-  stage.innerHTML = `<button class="card" id="card" style="--g:${COL[c.g]}" aria-label="اقلبي الكارت">
-      <div class="face front">${front}</div>
-      <div class="face back">${back}</div></button>`;
-  $("card").addEventListener("click", e => e.currentTarget.classList.toggle("flipped"));
-}
-function mark(isKnown){
-  const d = deck(); if(!d.length) return;
-  const id = CARDS[d[idx]].id;
-  if(isKnown) known.add(id); else known.delete(id);
-  save();
-  if(!(onlyLearn && isKnown)) idx++;
-  render();
-}
-$("ok").onclick = ()=>mark(true);
-$("again").onclick = ()=>mark(false);
-$("next").onclick = ()=>{ idx++; render(); };
-$("prev").onclick = ()=>{ idx--; render(); };
-$("shuf").onclick = ()=>{ for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];} idx=0; render(); };
-$("fAll").onclick = ()=>{ onlyLearn=false; $("fAll").setAttribute("aria-pressed","true"); $("fLearn").setAttribute("aria-pressed","false"); idx=0; render(); };
-$("fLearn").onclick = ()=>{ onlyLearn=true; $("fLearn").setAttribute("aria-pressed","true"); $("fAll").setAttribute("aria-pressed","false"); idx=0; render(); };
-$("dir").onclick = ()=>{ arFirst=!arFirst; $("dir").setAttribute("aria-pressed", String(arFirst)); render(); };
-$("reset").onclick = ()=>{ if(confirm("تمسحي كل اللي حفظتيه وتبدئي من الأول؟")){ known.clear(); save(); order=CARDS.map((_,i)=>i); idx=0; render(); } };
-// Pronunciation (browser text-to-speech, German voice)
-let slow = false, deVoice = null;
-const hasTTS = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
-function pickVoice(){
-  if(!hasTTS) return;
-  const vs = speechSynthesis.getVoices();
-  deVoice = vs.find(v=>v.lang==="de-DE") || vs.find(v=>v.lang && v.lang.toLowerCase().startsWith("de")) || null;
-}
-if(hasTTS){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
-function currentCard(){ const d = deck(); return d.length ? CARDS[d[idx]] : null; }
-function say(text){
-  if(!hasTTS){ $("ttsMsg").hidden = false; return; }
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = "de-DE"; if(deVoice) u.voice = deVoice;
-  u.rate = slow ? 0.7 : 0.95;
-  speechSynthesis.speak(u);
-}
-$("sayWord").onclick = ()=>{ const c = currentCard(); if(c) say((ART[c.g]||"") + c.w); };
-$("saySent").onclick = ()=>{ const c = currentCard(); if(c) say(c.ex); };
-$("slow").onclick = ()=>{ slow = !slow; $("slow").setAttribute("aria-pressed", String(slow)); };
-
-document.addEventListener("keydown", e=>{
-  if(e.key==="ArrowLeft"){ idx++; render(); }
-  else if(e.key==="ArrowRight"){ idx--; render(); }
-  else if(e.key===" "){ e.preventDefault(); const c=$("card"); if(c) c.classList.toggle("flipped"); }
-});
-render();
+};
 </script>
+<script src="cards.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
