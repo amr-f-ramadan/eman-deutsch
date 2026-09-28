@@ -58,7 +58,7 @@ window.APP = {
   vapid: "BFZuIFPCB6Xfxe7Zh8ldo_6S9V4jIi8IskNE2ptXS6XJiHVb48SpkilWmXUOH3jwDjE9rIsFhXYL3_iy9jeiLz8",
   fields: ["w", "g", "hint", "ar", "ex", "tr", "note", "fam", "cat"],
   rules: {
-    w: "w: das Wort in Grundform, bei Nomen OHNE Artikel.",
+    w: "w: das deutsche Wort in Grundform, bei Nomen OHNE Artikel. Ist die Eingabe Arabisch oder Englisch, nimm das gebräuchlichste passende deutsche Wort und erstelle die Karte dafür.",
     g: "g: \"der\", \"die\" oder \"das\" bei Nomen im Singular, \"pl\" bei Nomen nur im Plural, sonst \"x\".",
     intro: "Du erstellst eine Lernkarte für eine Ägypterin, die Deutsch lernt. Alles Arabische schreibst du im ägyptischen Dialekt, nicht auf Hocharabisch.",
     hint: 'hint: kurz, auf Deutsch: bei Nomen Artikel, Wort und Plural wie "die Fliese, -n", bei Verben drei Formen wie "räumt ein, räumte ein, hat eingeräumt", bei festen Präpositionen der Kasus, sonst die Wortart.',
@@ -91,7 +91,7 @@ window.APP = {
     backupH: "نسخة احتياطية", export: "احفظي نسخة كملف", import: "رجّعي نسخة من ملف", imported: "النسخة اترجعت", importFail: "الملف ده مش مناسب",
     optsH: "المذاكرة", newPerDay: "كلمات جديدة في اليوم", arFirst: "اعرضي العربي الأول", slow: "نطق أبطأ",
     resetH: "البداية من الأول", reset: "امسحي التقدم كله", resetQ: "متأكدة إنك عايزة تمسحي التقدم كله؟",
-    addH: "كلمة جديدة", addPh: "اكتبي كلمة بالألماني", gen: "اعملي كارت", genBusy: "بيتعمل…",
+    addH: "كلمة جديدة", addPh: "بالألماني أو العربي أو الإنجليزي", gen: "اعملي كارت", genBusy: "بيتعمل…",
     regen: "اعمليه تاني", saveCard: "ضيفيه للقايمة", saving: "بيتحفظ…", discard: "إلغاء",
     needKey: "عشان الكروت تتعمل لوحدها، حطي Gemini API key في الإعدادات الأول.",
     needTok: "عشان تحفظي، محتاجة الـ GitHub token (في الإعدادات).",
