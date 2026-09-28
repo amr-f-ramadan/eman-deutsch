@@ -5,20 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>كروت ألماني</title>
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0BAMAAADP4xsBAAAAGFBMVEX954Rvk1UgbmIfbmIfbmEebmLGCggDDw0gE7A0AAADvElEQVR42u2bTU8TQRjH/9P2wKXsLOBFw4sUb5SuqfFGot8APyeJ4U4wJsaTLKWuN4i0FzUC3Wk5WFPb8TCzu9PS7cu0IInPXLqZdH/zzPM+k5aVcVcjA0ITmtCEJjShCU1oQhOa0IQmNKH/CTpn85IUAOMIAbhzRt+UgV6NlQGccFu0FAAA1geQ2/tAZg/7AHtTt0Vn1e2AvOhfcB667vrq86mYtxlblxrpibk7X0QM5o2WxcEl5ie1vAd0t2ROs9nNeHM61N1YcxNgdbkJoGnrIbEeZJ+grSQav6a/zEbdmDnv4sdHi3xYDmHcTmrpGPIvmvK4CGXI3Bl0bWi4u55oNVSb7VVGCj0SnVgRkLwZa6PAIX0gU8Z13VIhpjdLI2P5oUqI5+5KqZrOzj5OJ//+BgDgbQD482tBzeY/fm+31WO7cfWyaRMyOsy1PuMdhGZkXo5ILpmxVmTeqFA/L9mgmcr/WTYk1JPlPwgLdKumVM1GVparkoUZtRWf/GwAADrajPJH/9c67YVppY6SdRHKjs2+nbtxKDYt/FpGCZSLgVBfWvYAHF/cTgFTovNrNWVH3RewLa/rA3hROuibnxytwzxbdfrsyJpbRZ+5AHxvdOeQGxfmPCoqGiFXVqsuQgAIZkQ7jkYg6HEA6FZ5CJXlL4VVUpXbZwCAnfqAHZkjyvCliBf/LLlVO8kAOB0BAI01bQTvuK9PY3JKv76pqPcY0HsOAOitq/RUPLqYsaKr3S5XAKwb9pLlwwmbknFo7iUzQY8Drc6k7U4uNczPklaVGaWXHczcqWrbmH2GWEwcZ5bGbIjZuyUgU4kbBteyWTCrublalP+eeQAO7UJGpGxEzT8q+kDWTiHFYQIlxWq36rrumNY4BS3lmGae25txKPq6ZDbYctsK3TpNWU8YWpdWHsJEClpXwqALFN7bOZ92hFeRS7/Voa53WdsDPgkbdBTmjh/1FHE8qtzdOeKyZhfoWo07UUVtxdVAPaDRsPQQFg6etLgO9bw34+FOO0iCzsfV23iBcRvnE7pRGDgqyoAFfNLiNxQtV2+FXJSyRf51PLdnoxBnEM2CaDfsy0Z03ju18hCViotGy6VuRNiGyBeEAICl3WD08W74kbSlrGZcLMmCquo1ICwfC2DFO3HUXENMg9ZXTqZQYeIUYRlA91S3Z6mXZszmpyfheM+zvYxz53FBNMsgNKEJTWhCE5rQhCY0oQlNaELfFzoX3h168+7Q9B8OQhOa0P9dUiVdE5rQhH6gaBo0aNB4oOMv/i49S/nrIo4AAAAASUVORK5CYII=">
+<link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Deutsch">
-<meta name="theme-color" content="#E6EBEE">
+<meta name="theme-color" content="#E6EBEE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161C22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#E6EBEE;--paper:#FBFCFC;--ink:#1E2833;--muted:#5E6B78;--line:#CBD4DA;--accent:#1F6E62;
+  --glass:rgba(255,255,255,.55);--glass-strong:rgba(255,255,255,.7);--rim:rgba(255,255,255,.75);--shine:rgba(255,255,255,.9);--shadow:rgba(15,55,50,.3);
+  --orb1:rgba(95,196,178,.5);--orb2:rgba(31,110,98,.35);--orb3:rgba(253,231,132,.6);
   --der:#2D5F9E;--die:#B03F37;--das:#3B7A4C;--other:#8A6D1E;--ok:#3B7A4C;--again:#B03F37;
   --ui:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;--de:"Literata",Georgia,"Times New Roman",serif;--arf:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161C22;--paper:#212A33;--ink:#E8EDF1;--muted:#9AA7B3;--line:#34404B;--accent:#5FC4B2;
+  --glass:rgba(255,255,255,.08);--glass-strong:rgba(255,255,255,.14);--rim:rgba(255,255,255,.16);--shine:rgba(255,255,255,.22);--shadow:rgba(0,0,0,.6);
+  --orb1:rgba(31,110,98,.55);--orb2:rgba(95,196,178,.22);--orb3:rgba(253,231,132,.16);
   --der:#7FAEE8;--die:#EE8A80;--das:#86C996;--other:#E0C06A;--ok:#86C996;--again:#EE8A80}}
 :root[data-theme="dark"]{--bg:#161C22;--paper:#212A33;--ink:#E8EDF1;--muted:#9AA7B3;--line:#34404B;--accent:#5FC4B2;
+  --glass:rgba(255,255,255,.08);--glass-strong:rgba(255,255,255,.14);--rim:rgba(255,255,255,.16);--shine:rgba(255,255,255,.22);--shadow:rgba(0,0,0,.6);
+  --orb1:rgba(31,110,98,.55);--orb2:rgba(95,196,178,.22);--orb3:rgba(253,231,132,.16);
   --der:#7FAEE8;--die:#EE8A80;--das:#86C996;--other:#E0C06A;--ok:#86C996;--again:#EE8A80}
 </style>
 <link rel="stylesheet" href="app.css">
@@ -30,10 +38,10 @@
 </div>
 <div id="toast" hidden role="status"></div>
 <nav>
-  <button data-mode="learn">مذاكرة<span id="badge" hidden></span></button>
-  <button data-mode="quiz">der/die/das</button>
-  <button data-mode="list">كل الكلمات</button>
-  <button data-mode="settings">الإعدادات</button>
+  <button data-mode="learn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="14" rx="3"/><path d="M7 3h11a3 3 0 0 1 3 3v11"/></svg>مذاكرة<span id="badge" hidden></span></button>
+  <button data-mode="quiz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>der/die/das</button>
+  <button data-mode="list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6H4M15 12H4M15 18H4"/><circle cx="19.5" cy="6" r="1"/><circle cx="19.5" cy="12" r="1"/><circle cx="19.5" cy="18" r="1"/></svg>كل الكلمات</button>
+  <button data-mode="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>الإعدادات</button>
 </nav>
 <script>
 window.APP = {
@@ -46,6 +54,16 @@ window.APP = {
     var now = Date.now(), d = new Date(); d.setHours(0,0,0,0);
     s.known.forEach(function (id, i) { p.cards[id] = { b: 2, due: d.getTime() + (1 + i % 3) * 864e5, t: now, n: 1, w: 0 }; });
   },
+  fields: ["w", "g", "hint", "ar", "ex", "tr", "note", "fam", "cat"],
+  rules: {
+    intro: "Du erstellst eine Lernkarte für eine Ägypterin, die Deutsch lernt. Alles Arabische schreibst du im ägyptischen Dialekt, nicht auf Hocharabisch.",
+    hint: 'hint: kurz, auf Deutsch: bei Nomen Artikel, Wort und Plural wie "die Fliese, -n", bei Verben drei Formen wie "räumt ein, räumte ein, hat eingeräumt", bei festen Präpositionen der Kasus, sonst die Wortart.',
+    ar: 'ar: die Bedeutung auf Ägyptisch-Arabisch, kurz, zwei Varianten mit " / " getrennt, wenn sinnvoll.',
+    ex: "ex: ein kurzer, natürlicher Beispielsatz aus dem Alltag; das Zielwort in <b>…</b>.",
+    tr: "tr: die Übersetzung des Beispielsatzes auf Ägyptisch-Arabisch, natürlich formuliert, ohne <b>.",
+    note: "note: nur wenn es eine typische Falle gibt (Verwechslung, Kasus, falscher Freund): kurz auf Ägyptisch-Arabisch, direkt an sie gerichtet (weibliche Formen). Sonst leer.",
+    cat: 'cat: das Thema der Karte auf Ägyptisch-Arabisch, ein bis drei Wörter.\n  Schon vorhandene Themen: {topics}.\n  Nimm eines davon, wenn es inhaltlich passt. Nur wenn keines passt, erfinde ein neues, eher allgemeines Thema (z. B. "الشغل", "التسوق", "السفر").'
+  },
   t: {
     flip: "اقلبي الكارت", show: "اعرفي المعنى", again: "لسه", good: "عرفتها",
     sayWord: "اسمعي الكلمة", sayEx: "اسمعي المثال", whatDe: "الكلمة دي بالألماني إيه؟",
@@ -57,9 +75,29 @@ window.APP = {
     tokenLabel: "GitHub token (Fine-grained، للـ repo ده بس، Contents: Read and write)", saveToken: "احفظي الـ token", tokenOk: "اتوصلت، والتقدم اتزامن",
     syncNow: "زامني دلوقتي", delToken: "امسحي الـ token",
     st_local: "محفوظ على الجهاز ده بس", st_syncing: "بيزامن…", st_ok: "متزامن", st_error: "المزامنة فشلت، جربي تاني بعدين", st_badtoken: "الـ token غلط أو خلص",
+    st_noperm: "الـ token مالوش صلاحية كتابة (ناقص Contents: Read and write)",
     backupH: "نسخة احتياطية", export: "احفظي نسخة كملف", import: "رجّعي نسخة من ملف", imported: "النسخة اترجعت", importFail: "الملف ده مش مناسب",
     optsH: "المذاكرة", newPerDay: "كلمات جديدة في اليوم", arFirst: "اعرضي العربي الأول", slow: "نطق أبطأ",
-    resetH: "البداية من الأول", reset: "امسحي التقدم كله", resetQ: "متأكدة إنك عايزة تمسحي التقدم كله؟"
+    resetH: "البداية من الأول", reset: "امسحي التقدم كله", resetQ: "متأكدة إنك عايزة تمسحي التقدم كله؟",
+    addH: "كلمة جديدة", addPh: "اكتبي كلمة بالألماني", gen: "اعملي كارت", genBusy: "بيتعمل…",
+    regen: "اعمليه تاني", saveCard: "ضيفيه للقايمة", saving: "بيتحفظ…", discard: "إلغاء",
+    needKey: "عشان الكروت تتعمل لوحدها، حطي Gemini API key في الإعدادات الأول.",
+    needTok: "عشان تحفظي، محتاجة الـ GitHub token (في الإعدادات).",
+    dup: "الكلمة دي موجودة في القايمة خلاص.", saved: "اتحفظت. بعد دقيقة أو اتنين هتلاقيها على أجهزتك التانية كمان.",
+    genFail: "الكارت متعملش", keyBad: "الـ Gemini key غلط", quota: "Gemini خلّص الحد بتاع النهارده، جربي تاني بكرة", overload: "Gemini عليه ضغط دلوقتي. جربي تاني كمان شوية.",
+    f_w: "الكلمة", f_g: "الأداة", f_hint: "تلميح", f_perf: "الماضي", f_ar: "المعنى بالعربي", f_def: "الشرح", f_ex: "المثال", f_tr: "ترجمة المثال", f_note: "ملحوظة",
+    gemH: "Gemini للكروت الجديدة", gemHelp: "بـ key مجاني من Google AI Studio، الأبلكيشن هيعمل كروت للكلمات الجديدة لوحده.",
+    gemLabel: "Gemini API key", gemSave: "احفظي الـ key", gemSet: "الـ Gemini key محفوظ", gemDel: "امسحي الـ key", newCat: "كلمات ضفتيها",
+    remH: "تذكير كل يوم", remHelp: "الأبلكيشن هيفكّرك مرة في اليوم لو فيه كروت مستنياكي. بيشتغل بس لو فتحتيه من الأيقونة اللي على الشاشة الرئيسية.",
+    remHour: "الساعة", remOn: "شغّلي التذكير", remSave: "احفظي الساعة", remOff: "وقّفي التذكير", remTest: "جربي على الجهاز ده",
+    remActive: "التذكير شغال، كل يوم الساعة {h}", remInactive: "التذكير مش شغال", remNoApp: "عشان تشغّلي التذكير، افتحي الأبلكيشن من الأيقونة اللي على الشاشة الرئيسية.",
+    remDenied: "الإشعارات مقفولة. اسمحي بيها للأبلكيشن ده من إعدادات الآيفون، في الإشعارات.", remNeedTok: "عشان التذكير، محتاجة الـ GitHub token.",
+    delCard: "امسحي الكارت", delQ: "متأكدة إنك عايزة تمسحي «{w}» من القايمة؟", deleted: "اتمسحت", delFail: "المسح منفعش",
+    queued: "Gemini مش بيرد دلوقتي. حطيت الكلمة في قايمة الانتظار، وكارتها هيتعمل لوحده أول ما Gemini يرجع يشتغل.",
+    famH: "من نفس العيلة", f_fam: "عيلة الكلمة (الكلمة الأصل)", f_cat: "الموضوع", searchPh: "دوّري بالألماني أو بالعربي", noHits: "مفيش نتايج",
+    waitH: "قايمة الانتظار", waitRm: "شيليها من قايمة الانتظار", autoAdded: "كارت جديد من قايمة الانتظار: {w}",
+    remDone: "التذكير اتحفظ", remFail: "التذكير متحفظش", remTestBody: "ده شكل التذكير.",
+    g_x: "من غير أداة", g_pl: "die (جمع)", perfL: "الماضي:", appName: "كلمات ألماني"
   }
 };
 </script>
