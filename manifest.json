@@ -1,0 +1,11 @@
+{
+  "name": "Deutsch",
+  "short_name": "Deutsch",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#161C22",
+  "theme_color": "#161C22"
+}
