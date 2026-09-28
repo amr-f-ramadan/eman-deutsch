@@ -29,7 +29,7 @@
   --orb1:rgba(31,110,98,.55);--orb2:rgba(95,196,178,.22);--orb3:rgba(253,231,132,.16);
   --der:#7FAEE8;--die:#EE8A80;--das:#86C996;--other:#E0C06A;--ok:#86C996;--again:#EE8A80}
 </style>
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="/karteikarten-engine/app.css">
 </head>
 <body>
 <div class="wrap">
@@ -44,6 +44,7 @@
   <button data-mode="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>الإعدادات</button>
 </nav>
 <script>
+function num(n, one, two, few, many) { return n === 1 ? one : n === 2 ? two : n + " " + (n <= 10 ? few : many); }
 window.APP = {
   repo: "amr-f-ramadan/eman-deutsch",
   key: "kk-eman-v2",
@@ -63,6 +64,12 @@ window.APP = {
     tr: "tr: die Übersetzung des Beispielsatzes auf Ägyptisch-Arabisch, natürlich formuliert, ohne <b>.",
     note: "note: nur wenn es eine typische Falle gibt (Verwechslung, Kasus, falscher Freund): kurz auf Ägyptisch-Arabisch, direkt an sie gerichtet (weibliche Formen). Sonst leer.",
     cat: 'cat: das Thema der Karte auf Ägyptisch-Arabisch, ein bis drei Wörter.\n  Schon vorhandene Themen: {topics}.\n  Nimm eines davon, wenn es inhaltlich passt. Nur wenn keines passt, erfinde ein neues, eher allgemeines Thema (z. B. "الشغل", "التسوق", "السفر").'
+  },
+  remind: {
+    due: function (n) { return num(n, "كارت واحد", "كارتين", "كروت", "كارت") + " للمراجعة"; },
+    fresh: function (n) { return num(n, "كلمة جديدة", "كلمتين جداد", "كلمات جديدة", "كلمة جديدة"); },
+    body: function (parts) { return "عندك " + parts.join(" و"); },
+    test: "تجربة: التذكير شغال"
   },
   t: {
     flip: "اقلبي الكارت", show: "اعرفي المعنى", again: "لسه", good: "عرفتها",
@@ -102,6 +109,6 @@ window.APP = {
 };
 </script>
 <script src="cards.js"></script>
-<script src="app.js"></script>
+<script src="/karteikarten-engine/app.js"></script>
 </body>
 </html>
