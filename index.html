@@ -29,7 +29,8 @@
   --orb1:rgba(31,110,98,.55);--orb2:rgba(95,196,178,.22);--orb3:rgba(253,231,132,.16);
   --der:#7FAEE8;--die:#EE8A80;--das:#86C996;--other:#E0C06A;--ok:#86C996;--again:#EE8A80}
 </style>
-<link rel="stylesheet" href="/karteikarten-engine/app.css">
+<!-- ?v= makes the phone fetch the current engine instead of an old cached copy -->
+<script data-loader>document.write('<link rel="stylesheet" href="/karteikarten-engine/app.css?v=' + Date.now() + '">');</script>
 </head>
 <body>
 <div class="wrap">
@@ -125,6 +126,6 @@ window.APP = {
 };
 </script>
 <script src="cards.js"></script>
-<script src="/karteikarten-engine/app.js"></script>
+<script data-loader>document.write('<script src="/karteikarten-engine/app.js?v=' + Date.now() + '"><\/script>');</script>
 </body>
 </html>
