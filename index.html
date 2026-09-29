@@ -41,6 +41,7 @@
   <button data-mode="learn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="14" rx="3"/><path d="M7 3h11a3 3 0 0 1 3 3v11"/></svg>مذاكرة<span id="badge" hidden></span></button>
   <button data-mode="quiz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>der/die/das</button>
   <button data-mode="list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6H4M15 12H4M15 18H4"/><circle cx="19.5" cy="6" r="1"/><circle cx="19.5" cy="12" r="1"/><circle cx="19.5" cy="18" r="1"/></svg>كل الكلمات</button>
+  <button data-mode="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 5H4v11h11l5 4z"/><path d="M16 9.5H8M16 12.5h-5"/></svg>اتكلمي</button>
   <button data-mode="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>الإعدادات</button>
 </nav>
 <script>
@@ -69,6 +70,10 @@ window.APP = {
     cat: 'cat: das Thema der Karte auf Ägyptisch-Arabisch, ein bis drei Wörter.\n  Schon vorhandene Themen: {topics}.\n  Nimm eines davon, wenn es inhaltlich passt. Nur wenn keines passt, erfinde ein neues, eher allgemeines Thema (z. B. "الشغل", "التسوق", "السفر").',
     fam: "fam: das Stammwort der Wortfamilie, klein geschrieben, meist der Infinitiv des Verbs, sonst das Grundwort (z. B. \"empfinden\" für empfindlich, Empfindung und empfinden).\n  Schon vorhandene Wortfamilien: {fams}.\n  Wenn das Wort wirklich zu einer davon gehört, nimm genau diesen Wert. Sonst ein neues Stammwort.\n  Wichtig: Wortfamilie heißt gleicher Wortstamm in der Form (abwesend und Abwesenheit), NICHT ähnliche Bedeutung (abwesend und verlassen sind keine Familie) und NICHT nur gleiche Vorsilbe.",
     end: "Keine Bindestriche als Gedankenstrich verwenden."
+  },
+  practice: {
+    task: "Du bist Deutschlehrerin. Deine Schülerin ist Ägypterin und lernt Deutsch: Sie versteht viele Wörter, kann sie aber im Gespräch nicht spontan benutzen.\nErfinde eine kurze, konkrete Alltagssituation (Thema: {topic}), in der sie auf Deutsch etwas sagen muss und dabei diese Wörter natürlich benutzen kann: {words}.\n- task: die Situation und was sie sagen soll, auf Ägyptisch-Arabisch (nicht Hocharabisch), ein bis zwei Sätze, direkt an sie gerichtet (weibliche Formen). Nenne die Zielwörter nicht.\n- starter: ein möglicher Satzanfang auf Deutsch, drei bis sechs Wörter, ohne die Zielwörter.\nKeine Bindestriche als Gedankenstrich verwenden.",
+    feedback: "Du bist eine freundliche Deutschlehrerin. Aufgabe: \"{task}\". Zielwörter: {words}. Antwort der Schülerin: \"{answer}\".\n- correct: true, wenn die Antwort grammatisch richtig ist und zur Aufgabe passt.\n- corrected: ihre Antwort mit so wenigen Änderungen wie möglich korrigiert, auf Deutsch.\n- natural: wie eine Muttersprachlerin es flüssig und einfach sagen würde, ein bis zwei Sätze auf Deutsch, mit den Zielwörtern.\n- tips: höchstens zwei sehr kurze Erklärungen der wichtigsten Fehler auf Ägyptisch-Arabisch, direkt an sie gerichtet (weibliche Formen); leer, wenn alles stimmt.\n- used: die Zielwörter, die sie richtig benutzt hat, genau wie in der Liste.\n- chunks: bis zu drei nützliche feste Wendungen auf Deutsch aus natural (drei bis sechs Wörter), die sie lernen sollte.\nKeine Bindestriche als Gedankenstrich verwenden."
   },
   remind: {
     due: function (n) { return num(n, "كارت واحد", "كارتين", "كروت", "كارت") + " للمراجعة"; },
@@ -109,7 +114,13 @@ window.APP = {
     famH: "من نفس العيلة", f_fam: "عيلة الكلمة (الكلمة الأصل)", f_cat: "الموضوع", searchPh: "دوّري بالألماني أو بالعربي", noHits: "مفيش نتايج",
     waitH: "قايمة الانتظار", waitRm: "شيليها من قايمة الانتظار", autoAdded: "كارت جديد من قايمة الانتظار: {w}",
     remDone: "التذكير اتحفظ", remFail: "التذكير متحفظش", remTestBody: "ده شكل التذكير.",
-    g_x: "من غير أداة", g_pl: "die (جمع)", perfL: "الماضي:", appName: "كلمات ألماني"
+    g_x: "من غير أداة", g_pl: "die (جمع)", perfL: "الماضي:", appName: "كلمات ألماني",
+    sayDe: "قوليها بالألماني في جملة كاملة", prodAuto: "الكلمات اللي عرفتيها: المعنى يظهر الأول وإنتي تقوليها بالألماني",
+    prIntro: "Gemini هيديكي موقف. ردي بالألماني، كتابة أو بالمايك اللي في الكيبورد، وقوليها بصوت عالي.",
+    prStart: "ابدئي", prNext: "موقف تاني", prCheck: "تصحيح", prBusy: "لحظة…", prPh: "ردك بالألماني",
+    prWords: "استخدمي الكلمات دي", prGood: "برافو، صح!", prCorrected: "بعد التصحيح", prNatural: "كده بيقولوها الألمان", prTips: "ملاحظات",
+    prUsed: "الكلمات المطلوبة", prChunks: "جمل مفيدة، دوسي + عشان تبقى كارت", prAdd: "ضيفيها كارت",
+    prAdded: "اتحطت في قايمة الانتظار وهتبقى كارت حالاً", prFail: "Gemini مش بيرد دلوقتي، جربي تاني كمان شوية"
   }
 };
 </script>
