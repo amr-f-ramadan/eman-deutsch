@@ -72,6 +72,21 @@ window.APP = {
     fam: "fam: das Stammwort der Wortfamilie, klein geschrieben, meist der Infinitiv des Verbs, sonst das Grundwort (z. B. \"empfinden\" für empfindlich, Empfindung und empfinden).\n  Schon vorhandene Wortfamilien: {fams}.\n  Wenn das Wort wirklich zu einer davon gehört, nimm genau diesen Wert. Sonst ein neues Stammwort.\n  Wichtig: Wortfamilie heißt gleicher Wortstamm in der Form (abwesend und Abwesenheit), NICHT ähnliche Bedeutung (abwesend und verlassen sind keine Familie) und NICHT nur gleiche Vorsilbe.",
     end: "Keine Bindestriche als Gedankenstrich verwenden."
   },
+  phrases: {
+    perDay: 3,
+    fields: ["w", "ar", "ex", "tr", "note", "cat"],
+    rules: {
+      intro: "Du erstellst eine Lernkarte für eine feste deutsche Wendung (Satzanfang, Füllwort oder Redemittel) für eine Ägypterin, die Deutsch lernt und im Gespräch flüssiger sprechen will. Alles Arabische schreibst du im ägyptischen Dialekt, nicht auf Hocharabisch.",
+      w: "w: die Wendung auf Deutsch, so wie man sie im Gespräch sagt; wo der Satz weitergeht, steht … (z. B. \"Ich finde, dass …\"). Ist die Eingabe Arabisch oder Englisch, nimm die gebräuchlichste passende deutsche Wendung.",
+      ar: "ar: die Bedeutung auf Ägyptisch-Arabisch, kurz.",
+      ex: "ex: ein kurzer, natürlicher Beispielsatz aus einem Alltagsgespräch; die Wendung in <b>…</b>.",
+      tr: "tr: die Übersetzung des Beispielsatzes auf Ägyptisch-Arabisch, natürlich formuliert, ohne <b>.",
+      note: "note: kurz auf Ägyptisch-Arabisch, wann man sie benutzt (formell oder locker, beim Arzt, am Telefon …), direkt an sie gerichtet (weibliche Formen); leer, wenn es nichts Besonderes gibt.",
+      cat: "cat: wofür man die Wendung benutzt, auf Ägyptisch-Arabisch, zwei bis vier Wörter (z. B. \"بداية الكلام\", \"إبداء الرأي\", \"كسب الوقت\").\n  Schon vorhandene Gruppen: {groups}.\n  Nimm eine davon, wenn sie passt. Sonst eine neue.",
+      end: "Keine Bindestriche als Gedankenstrich verwenden."
+    },
+    starter: "Erstelle einen Grundstock von 30 sehr häufigen, einfachen deutschen Wendungen für Alltagsgespräche (Nachbarn, Arzt, Einkaufen, Ämter, Telefon), für eine Ägypterin, die Deutsch lernt, viele Wörter kennt, aber im Gespräch nicht flüssig ist. Je drei bis vier Wendungen für diese Gruppen (cat genau so): \"بداية الكلام\", \"إبداء الرأي\", \"الموافقة\", \"الاعتراض بذوق\", \"كسب الوقت\" (Füllwörter wie \"Also, …\" oder \"Moment mal …\"), \"الاستفسار\", \"الطلب بأدب\", \"نهاية الكلام\". Antworte mit einer Liste von Karten."
+  },
   practice: {
     task: "Du bist Deutschlehrerin. Deine Schülerin ist Ägypterin und lernt Deutsch: Sie versteht viele Wörter, kann sie aber im Gespräch nicht spontan benutzen.\nErfinde eine kurze, konkrete Alltagssituation (Thema: {topic}), in der sie auf Deutsch etwas sagen muss und dabei diese Wörter natürlich benutzen kann: {words}.\n- task: die Situation und was sie sagen soll, auf Ägyptisch-Arabisch (nicht Hocharabisch), ein bis zwei Sätze, direkt an sie gerichtet (weibliche Formen). Nenne die Zielwörter nicht.\n- starter: ein möglicher Satzanfang auf Deutsch, drei bis sechs Wörter, ohne die Zielwörter.\nKeine Bindestriche als Gedankenstrich verwenden.",
     feedback: "Du bist eine freundliche Deutschlehrerin. Aufgabe: \"{task}\". Zielwörter: {words}. Antwort der Schülerin: \"{answer}\".\n- correct: true, wenn die Antwort grammatisch richtig ist und zur Aufgabe passt.\n- corrected: ihre Antwort mit so wenigen Änderungen wie möglich korrigiert, auf Deutsch.\n- natural: wie eine Muttersprachlerin es flüssig und einfach sagen würde, ein bis zwei Sätze auf Deutsch, mit den Zielwörtern.\n- tips: höchstens zwei sehr kurze Erklärungen der wichtigsten Fehler auf Ägyptisch-Arabisch, direkt an sie gerichtet (weibliche Formen); leer, wenn alles stimmt.\n- used: die Zielwörter, die sie richtig benutzt hat, genau wie in der Liste.\n- chunks: bis zu drei nützliche feste Wendungen auf Deutsch aus natural (drei bis sechs Wörter), die sie lernen sollte.\nKeine Bindestriche als Gedankenstrich verwenden."
@@ -79,6 +94,7 @@ window.APP = {
   remind: {
     due: function (n) { return num(n, "كارت واحد", "كارتين", "كروت", "كارت") + " للمراجعة"; },
     fresh: function (n) { return num(n, "كلمة جديدة", "كلمتين جداد", "كلمات جديدة", "كلمة جديدة"); },
+    freshP: function (n) { return num(n, "عبارة جديدة", "عبارتين جداد", "عبارات جديدة", "عبارة جديدة"); },
     body: function (parts) { return "عندك " + parts.join(" و"); },
     test: "تجربة: التذكير شغال"
   },
@@ -120,8 +136,14 @@ window.APP = {
     prIntro: "Gemini هيديكي موقف. ردي بالألماني، كتابة أو بالمايك اللي في الكيبورد، وقوليها بصوت عالي.",
     prStart: "ابدئي", prNext: "موقف تاني", prCheck: "تصحيح", prBusy: "لحظة…", prPh: "ردك بالألماني",
     prWords: "استخدمي الكلمات دي", prGood: "برافو، صح!", prCorrected: "بعد التصحيح", prNatural: "كده بيقولوها الألمان", prTips: "ملاحظات",
-    prUsed: "الكلمات المطلوبة", prChunks: "جمل مفيدة، دوسي + عشان تبقى كارت", prAdd: "ضيفيها كارت",
-    prAdded: "اتحطت في قايمة الانتظار وهتبقى كارت حالاً", prFail: "Gemini مش بيرد دلوقتي، جربي تاني كمان شوية"
+    prUsed: "الكلمات المطلوبة", prChunks: "جمل مفيدة، دوسي + عشان تتحط في العبارات", prAdd: "ضيفيها للعبارات",
+    prAdded: "اتضافت لعباراتك وهتجهز حالاً", prFail: "Gemini مش بيرد دلوقتي، جربي تاني كمان شوية",
+    segW: "الكلمات", segP: "العبارات", phTag: "عبارة", sayPh: "قوليها بالألماني", phAddH: "عبارة جديدة", phAddPh: "بالألماني أو العربي أو الإنجليزي",
+    phF_w: "العبارة", phF_cat: "بتتقال إمتى", phSay: "اسمعيها", phNewCat: "عبارات ضفتيها", phDup: "العبارة دي موجودة خلاص.",
+    phQueued: "Gemini مش بيرد دلوقتي. العبارة في قايمة الانتظار وهتتعمل لوحدها أول ما يرجع يشتغل.",
+    phStarterHelp: "Gemini هيجهزلك حوالي 30 عبارة مشهورة: تبدئي بيها الكلام، تقولي رأيك، تعترضي بذوق، تكسبي وقت وإنتي بتفكري، وغيرهم. تقدري تمسحي أي واحدة.",
+    phStarter: "جهّزيلي العبارات الأساسية", phStarterBusy: "بتتجهز، هتاخد شوية…", phStarterDone: "العبارات اتضافت: {n}",
+    phStarterFail: "Gemini مش بيرد دلوقتي، جربي تاني كمان شوية", phStat: "{a} من {t} عبارة ثابتين معاكي", newPhrases: "عبارات جديدة في اليوم"
   }
 };
 </script>
