@@ -1,6 +1,6 @@
 // Karten: g = der | die | das | pl | x (kein Artikel).
 window.CARDS = [
- {"id":"grundlage","g":"die","w":"Grundlage","cat":"كلمات وتعبيرات مهمة","hint":"die Grundlage, -n","ar":"الأساس","ex":"Eine gute Lage ist die Grundlage für eine schöne Wohnung.","tr":"الموقع الكويس هو أساس الشقة الحلوة.","note":"في الورقة مكتوب «Standart»، الصح «der Standard». ومرادف أدق لـ Grundlage هو «die Basis»."},
+ {"id":"grundlage","g":"die","w":"Grundlage","cat":"كلمات وتعبيرات مهمة","hint":"die Grundlage, -n","ar":"الأساس","ex":"Eine gute Lage ist die Grundlage für eine schöne Wohnung.","tr":"الموقع الكويس هو أساس الشقة الحلوة.","note":"مرادف قريب لـ Grundlage: «die Basis»."},
  {"id":"hauptsache","g":"die","w":"Hauptsache","cat":"كلمات وتعبيرات مهمة","hint":"die Hauptsache","ar":"أهم حاجة / المهم","ex":"Hauptsache, die Wohnung ist ruhig.","tr":"المهم إن الشقة تكون هادية."},
  {"id":"stabil","g":"x","w":"stabil","cat":"الوصف والمقاسات","hint":"Adjektiv","ar":"متين / ثابت","ex":"Das Regal ist sehr stabil.","tr":"الرف متين جداً."},
  {"id":"wohnsitz","g":"der","w":"Wohnsitz","cat":"السكن","hint":"der feste Wohnort / der feste Wohnsitz","ar":"محل إقامة ثابت","ex":"Er hat noch keinen festen Wohnsitz.","tr":"هو لسه معندوش محل إقامة ثابت.","fam":"wohnen"},
@@ -8,7 +8,7 @@ window.CARDS = [
  {"id":"eng","g":"x","w":"eng","cat":"الوصف والمقاسات","hint":"Adjektiv (≠ geräumig)","ar":"ضيق","ex":"Die Küche ist sehr eng, wir haben wenig Platz.","tr":"المطبخ ضيق جداً، مفيش مكان كفاية."},
  {"id":"atmen","g":"x","w":"Man kann nicht atmen.","cat":"الصحة","hint":"atmen, atmete, hat geatmet","ar":"الواحد مش قادر ياخد نفسه","ex":"Das Zimmer ist so klein, man kann kaum atmen.","tr":"الأوضة صغيرة أوي، الواحد بالعافية بياخد نفسه.","fam":"atmen"},
  {"id":"atemprobleme","g":"pl","w":"Atemprobleme","cat":"الصحة","hint":"die Atemprobleme (Plural)","ar":"مشاكل في التنفس","ex":"Wegen der feuchten Wände hat er Atemprobleme.","tr":"بسبب الحيطان اللي فيها رطوبة عنده مشاكل في التنفس.","fam":"atmen"},
- {"id":"mittel","g":"das","w":"Mittel","cat":"كلمات وتعبيرات مهمة","hint":"das Mittel, -","ar":"وسيلة / طريقة","ex":"Lüften ist ein gutes Mittel gegen Schimmel.","tr":"التهوية وسيلة كويسة ضد العفن.","note":"في الورقة مكتوب «die Mittel»، ده الجمع. المفرد «das Mittel»."},
+ {"id":"mittel","g":"das","w":"Mittel","cat":"كلمات وتعبيرات مهمة","hint":"das Mittel, -","ar":"وسيلة / طريقة","ex":"Lüften ist ein gutes Mittel gegen Schimmel.","tr":"التهوية وسيلة كويسة ضد العفن."},
  {"id":"mitte","g":"die","w":"Mitte","cat":"المدينة والمواصلات","hint":"die Mitte","ar":"النص / المنتصف","ex":"Der Tisch steht in der Mitte des Zimmers.","tr":"الترابيزة في نص الأوضة.","fam":"mitte"},
  {"id":"stadtmitte","g":"die","w":"Stadtmitte","cat":"المدينة والمواصلات","hint":"die Stadtmitte = das Stadtzentrum","ar":"وسط البلد","ex":"Wir wohnen direkt in der Stadtmitte.","tr":"إحنا ساكنين في وسط البلد على طول.","fam":"mitte"},
  {"id":"reisende","g":"pl","w":"Reisenden","cat":"المدينة والمواصلات","hint":"die Reisenden (Plural) / ein Reisender","ar":"المسافرين","ex":"Die Reisenden warten am Bahnhof auf den Zug.","tr":"المسافرين مستنيين القطر في المحطة."},
@@ -29,7 +29,7 @@ window.CARDS = [
  {"id":"fliese","g":"die","w":"Fliese","cat":"السكن","hint":"die Fliese, -n (auch: die Fliesenplatte)","ar":"بلاطة / سيراميك","ex":"Im Bad sind die Fliesen weiß.","tr":"السيراميك في الحمام أبيض."},
  {"id":"bestehen","g":"x","w":"bestehen aus","cat":"كلمات وتعبيرات مهمة","hint":"bestehen aus + Dativ (besteht, bestand, hat bestanden)","ar":"يتكوّن من","ex":"Die Wohnung besteht aus drei Zimmern, einer Küche und einem Bad.","tr":"الشقة بتتكون من تلات أوض ومطبخ وحمام."},
  {"id":"qm","g":"der","w":"Quadratmeter","cat":"الوصف والمقاسات","hint":"der Quadratmeter, - (m²)","ar":"متر مربع","ex":"Die Miete kostet 12 Euro pro Quadratmeter.","tr":"الإيجار 12 يورو للمتر المربع."},
- {"id":"laenge","g":"die","w":"Länge","cat":"الوصف والمقاسات","hint":"die Länge, -n","ar":"الطول","ex":"Das Zimmer hat eine Länge von fünf Metern.","tr":"طول الأوضة خمسة متر.","note":"في الورقة مكتوب «lenght»، الإنجليزي الصح «length»."},
+ {"id":"laenge","g":"die","w":"Länge","cat":"الوصف والمقاسات","hint":"die Länge, -n","ar":"الطول","ex":"Das Zimmer hat eine Länge von fünf Metern.","tr":"طول الأوضة خمسة متر."},
  {"id":"breite","g":"die","w":"Breite","cat":"الوصف والمقاسات","hint":"die Breite, -n","ar":"العرض","ex":"Das Bett hat eine Breite von 1,60 Metern.","tr":"عرض السرير متر وستين."},
  {"id":"fast","g":"x","w":"fast","cat":"كلمات وتعبيرات مهمة","hint":"≈ beinahe","ar":"تقريباً (قرب يخلص)","ex":"Ich bin mit dem Aufräumen fast fertig.","tr":"أنا قربت أخلص الترويق.","note":"فيه فرق صغير: «fast» = قرب/كاد. «ungefähr» و«ca.» = حوالي (رقم مش مظبوط). «gegen» = حوالي مع الوقت: «gegen 18 Uhr»."},
  {"id":"insgesamt","g":"x","w":"insgesamt","cat":"الفلوس والحساب","hint":"Adverb","ar":"في المجموع / إجمالاً","ex":"Insgesamt zahlen wir 900 Euro Miete.","tr":"إحنا بندفع 900 يورو إيجار في المجموع.","fam":"gesamt"},
