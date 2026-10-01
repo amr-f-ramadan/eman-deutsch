@@ -29,3 +29,13 @@ The engine rules in `karteikarten-engine/CLAUDE.md` apply here in full. This fil
    greens and reds.
 6. Changes go through a branch and a PR; merge when the user says so. Secrets only in repository secrets or on the
    phone. Before a PR, run the engine's `npm test` with this checkout next to the engine.
+
+## Working method (Superpowers skills)
+
+The folder `.claude/skills/` holds the Superpowers skills (brainstorming, writing-plans, executing-plans,
+test-driven-development, systematic-debugging, verification-before-completion, requesting/receiving-code-review,
+finishing-a-development-branch, subagent-driven-development, and others). At the start of every session, read
+`.claude/skills/using-superpowers/SKILL.md` and follow it: check for a matching skill before any task, brainstorm
+before building a feature, plan before executing, test first for core logic, debug systematically, and verify before
+reporting done. Where a skill and the rules above differ (branching, merging only on request, texts in both apps,
+the fingerprint), the rules above win.
