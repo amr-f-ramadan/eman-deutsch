@@ -42,6 +42,7 @@
   <button data-mode="learn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="14" rx="3"/><path d="M7 3h11a3 3 0 0 1 3 3v11"/></svg>مذاكرة<span id="badge" hidden></span></button>
   <button data-mode="quiz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>der/die/das</button>
   <button data-mode="list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6H4M15 12H4M15 18H4"/><circle cx="19.5" cy="6" r="1"/><circle cx="19.5" cy="12" r="1"/><circle cx="19.5" cy="18" r="1"/></svg>كل الكلمات</button>
+  <button data-mode="phrases"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7C6 7 4.5 8.6 4.5 11s1.5 4 4 4c0 2-1 3.3-3 4.3"/><path d="M18.5 7c-2.5 0-4 1.6-4 4s1.5 4 4 4c0 2-1 3.3-3 4.3"/></svg>العبارات</button>
   <button data-mode="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 5H4v11h11l5 4z"/><path d="M16 9.5H8M16 12.5h-5"/></svg>اتكلمي</button>
   <button data-mode="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>الإعدادات</button>
 </nav>
@@ -111,6 +112,7 @@ window.APP = {
     st_local: "محفوظ على الجهاز ده بس", st_syncing: "بيزامن…", st_ok: "متزامن", st_error: "المزامنة فشلت، جربي تاني بعدين", st_badtoken: "الـ token غلط أو خلص",
     st_noperm: "الـ token مالوش صلاحية كتابة (ناقص Contents: Read and write)",
     backupH: "نسخة احتياطية", export: "احفظي نسخة كملف", import: "رجّعي نسخة من ملف", imported: "النسخة اترجعت", importFail: "الملف ده مش مناسب",
+    grpFn: "الوظايف", grpLearn: "المذاكرة", grpStyle: "الشكل", grpData: "البيانات", dockVert: "الشريط رأسي على الجنب اليمين",
     optsH: "المذاكرة", newPerDay: "كلمات جديدة في اليوم", arFirst: "اعرضي العربي الأول", slow: "نطق أبطأ", gvoice: "نطق طبيعي من Gemini (كل كلمة بتتعمل مرة واحدة وتتحفظ على الموبايل)",
     resetH: "البداية من الأول", reset: "امسحي التقدم كله", resetQ: "متأكدة إنك عايزة تمسحي التقدم كله؟",
     addH: "كلمة جديدة", addPh: "بالألماني أو العربي أو الإنجليزي", gen: "اعملي كارت", genBusy: "بيتعمل…",
